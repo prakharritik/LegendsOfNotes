@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>VR Gallery</title>
+        <meta charset="UTF-8">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component"></script>
+        <script>
+            AFRAME.registerComponent("stop",{
+                init:function(){
+                    var myEl = document.querySelector('#p1m');
+                    var myl = document.querySelector('#p2m');
+                    var myE = document.querySelector('#p3m');
+                    var mEl1 = document.querySelector('#pkk1');
+                    var mE2 = document.querySelector('#pkk2');
+                    var ml3 = document.querySelector('#pkk3');
+                    this.el.addEventListener('click',function (){
+                        myEl.components.sound.stopSound();
+                        myE.components.sound.stopSound();
+                        myl.components.sound.stopSound();
+                        mEl1.components.sound.stopSound();
+                        mE2.components.sound.stopSound();
+                        ml3.components.sound.stopSound();
+                    });
+
+
+                }
+            });
+        </script>
+    </head>
+
+    <body>
+        <a-scene environment="preset:forest; dressingAmount:70; ground:flat;">
+            <a-assets>
+                <a-asset-item id="mj" src="./assets/MJ.glb"></a-asset-item>
+                <a-asset-item id="kk" src="./assets/kishore.glb"></a-asset-item>
+                <a-asset-item id="ep" src="./assets/elvis.glb"></a-asset-item>
+                <a-asset-item id="bm" src="./assets/bob.glb"></a-asset-item>
+
+                <a-asset-item id="pbm"  src="./assets/pbm.glb"></a-asset-item>
+                <a-asset-item id="pbm1"  src="./assets/pbm2.glb"></a-asset-item>
+                <a-asset-item id="pbm2"  src="./assets/pbm3.glb"></a-asset-item>
+
+                <a-asset-item id="pmj1"  src="./assets/pmj1.glb"></a-asset-item>
+                <a-asset-item id="pmj2"  src="./assets/pmj2.glb"></a-asset-item>
+                <a-asset-item id="pmj3"  src="./assets/pmj3.glb"></a-asset-item>
+
+                <a-asset-item id="pkk1"  src="./assets/pkk1.glb"></a-asset-item>
+                <a-asset-item id="pkk2"  src="./assets/pkk2.glb"></a-asset-item>
+                <a-asset-item id="pkk3"  src="./assets/pkk3.glb"></a-asset-item>
+
+                <a-asset-item id="pep1"  src="./assets/pep1.glb"></a-asset-item>
+                <a-asset-item id="pep2"  src="./assets/pep2.glb"></a-asset-item>
+                <a-asset-item id="pep3"  src="./assets/pep3.glb"></a-asset-item>
+
+                <audio id="billie" src="./sound/billie.mp3"></audio>
+                <audio id="care" src="./sound/care.mp3"></audio>
+                <audio id="earth" src="./sound/earth.mp3"></audio>
+                <audio id="ladki" src="./sound/ladki.mp3"></audio>
+                <audio id="mehboob" src="./sound/mehboob.mp3"></audio>
+                <audio id="neele" src="./sound/neele.mp3"></audio>
+
+            </a-assets>
+
+            <a-entity id="rig" position="0 0.5 0">
+                <a-camera wasd-controls="enabled">
+                    <a-cursor></a-cursor>
+                </a-camera>
+            </a-entity>
+
+            <!--Michael Jackson-->
+            <a-entity id="mjGate" gltf-model="#mj" position="-10.261 5.97 -6.452" scale="2 2 2" stop></a-entity>
+            <a-entity id="p1m" gltf-model="#pmj1" position="-20.742 0 -20.235" rotation="0 -164.272 0" sound="src:#earth; on:click; volume:10;"></a-entity>
+            <a-entity id="p2m" gltf-model="#pmj2" position="-29.672 0 -9.816" rotation="8.852 -89.695 0" sound="src:#billie; on:click; volume:10;" ></a-entity>
+            <a-entity id="p3m" gltf-model="#pmj3" position="-19.792 0 1.188" rotation="0 -44.221 0" sound="src:#care; on:click; volume:10;"></a-entity>
+
+
+            <!--Kishore Kumar-->
+            <a-entity id="kkGate" gltf-model="#kk" position="40.261 5.97 -0.059" scale="2 2 2" rotation="0 180 0" stop></a-entity>
+            <a-entity id="pkk1" gltf-model="#pkk1" position="48.864 0 -7.857" rotation="0 -174.548 0" sound="src:#mehboob; on:click; volume:10;"></a-entity>
+            <a-entity id="pkk2" gltf-model="#pkk2" position="59.665 0 -0.162" rotation="-0.806 95.224 -0.763" sound="src:#ladki; on:click; volume:10;"></a-entity>
+            <a-entity id="pkk3" gltf-model="#pkk3" position="50.337 0 15.422" rotation="0 -17.300 0" sound="src:#neele; on:click; volume:10;"></a-entity>
+
+
+            <!--Bob-->
+            <a-entity id="bmGate" gltf-model="#bm" position="10.360 5.970 -39.573" scale="2 2 2" rotation="0 -90.000 0"></a-entity>
+            <a-entity id="p1" gltf-model="#pbm" position="23.142 0.000 -52.717" rotation="0 81.030 0" ></a-entity>
+            <a-entity id="p2" gltf-model="#pbm2" position="10.360 0.000 -63.346" rotation="0 180.000 0" ></a-entity>
+            <a-entity id="p3" gltf-model="#pbm1" position="-4.075 0.000 -53.675" rotation="0 -87.189 0"></a-entity>
+            
+            
+            <!--Elvis-->
+            <a-entity id="epGate" gltf-model="#ep" position="10.326 5.970 38.580" scale="2 2 2" rotation="0 90 0"></a-entity>
+            <a-entity id="pe1" gltf-model="#pep1" position="9.487 0.000 61.629" rotation="0 -1.047 0" ></a-entity>
+            <a-entity id="pe2" gltf-model="#pep2" position="21.288 0.000 49.099" rotation="0 101.518 0" ></a-entity>
+            <a-entity id="pe3" gltf-model="#pep3" position="-2.251 0.000 50.138" rotation="0 -87.189 0"></a-entity>
+        </a-scene>
+    </body>
+</html>
